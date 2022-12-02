@@ -10,7 +10,7 @@ interface I_Task {
 interface I_ToDoStore {
   tasks: I_Task[];
   createTask: (title: string) => void;
-  upDateTask: (id: string, title: string) => void;
+  updateTask: (id: string, title: string) => void;
   removeTask: (id: string) => void;
 }
 
@@ -28,7 +28,7 @@ export const useToDoStore = create<I_ToDoStore>((set, get) => ({
       tasks: [...tasks, newTask],
     });
   },
-  upDateTask: (id: string, title: string) => {
+  updateTask: (id: string, title: string) => {
     const { tasks } = get();
     set({
       tasks: tasks.map((task) => ({

@@ -7,10 +7,10 @@ import { InputPlus } from "../components/InputClass";
 import { InputTask } from "../components/InputTask";
 
 export const App: React.FC = () => {
-  const [tasks, createTask, upDateTask, removeTask] = useToDoStore((state) => [
+  const [tasks, createTask, updateTask, removeTask] = useToDoStore((state) => [
     state.tasks,
     state.createTask,
-    state.upDateTask,
+    state.updateTask,
     state.removeTask,
   ]);
 
@@ -37,7 +37,7 @@ export const App: React.FC = () => {
             id={task.id}
             title={task.title}
             onDone={removeTask}
-            onEdit={upDateTask}
+            onEdit={updateTask}
             onRemoved={removeTask}
             key={task.id}
           />
