@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import styles from "./index.module.scss";
 
-import { useToDoStore } from "../../../data/stores/useToDoStore";
-
 interface I_InputTask {
   id: string;
   title: string;
@@ -39,12 +37,15 @@ export const InputTask: React.FC<I_InputTask> = ({
           onChange={(e) => {
             setChecked(e.target.checked);
             if (e.target.checked) {
-              onDone(id);
+              setTimeout(() => {
+                onDone(id);
+              }, 300);
             }
           }}
           checked={checked}
           className={styles.inputTaskCheckbox}
         />
+
         {editMode ? (
           <input
             ref={inputRef}
